@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Card from './components/Card';
+import ShowHide from './components/ShowHide';
+import vehicles from "./data/vehicles";
 
 function App() {
+  const vehicleList = vehicles.map ((v) => {
+    return <Card title={v.name} description={v.description} />;
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> Hola/ la guerra de ucrania
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> En esta pagina conoceras los medios de transporte mas usados </h1>
+      <div className="container">
+        {vehicleList}
+        
+        <ShowHide/>
+      </div>
     </div>
   );
 }
